@@ -7,8 +7,7 @@ public class Login {
         System.out.println("Enter password: ");
         String password = scan.nextLine();
         scan.close();
-        System.out.println(username);
-        System.out.println(password);
-        System.out.println("Hello World");
+        System.out.println("Your username is: "+ username);
+        System.out.println("Your password is: "+ password);
     }
 }
