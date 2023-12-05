@@ -157,7 +157,7 @@ public class Signup extends JFrame implements ActionListener {
         statefield.setBounds(300, 540, 400, 30);
         add(statefield);
         
-        pincode = new JLabel("Pin Code: ");
+        pincode = new JLabel("Zip Code: ");
         pincode.setFont(new Font("Times New Roman", Font.BOLD, 20));
         pincode.setBounds(100, 590, 200, 30);
         add(pincode);
@@ -171,7 +171,7 @@ public class Signup extends JFrame implements ActionListener {
         next.setBackground(Color.orange);
         next.setForeground(Color.white);
         next.setFont(new Font("calibri", Font.BOLD, 14));
-        next.setBounds(660, 660, 80, 30);
+        next.setBounds(700, 500, 80, 30);
         next.addActionListener(this);
         add(next);
         
@@ -185,6 +185,17 @@ public class Signup extends JFrame implements ActionListener {
         setSize(850, 800);
         setVisible(true);
         setLocation(350, 10);
+    }
+    public boolean validate_save(){
+        boolean b = false;
+        if(namefield.getText().equals("")){
+            b=false;
+            JOptionPane.showMessageDialog(null, "Please fill all the required fields");
+            namefield.requestFocus();
+        }else{
+            b = true;
+        }
+        return b;
     }
 
     
@@ -224,7 +235,7 @@ public class Signup extends JFrame implements ActionListener {
                 c.s.executeUpdate(q1);
                 
                 setVisible(false);
-                //new Signup2(formno).setVisible(true);
+                new signup2(formno).setVisible(true);
             }
             
         }catch(Exception e){
