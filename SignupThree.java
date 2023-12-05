@@ -84,7 +84,7 @@ public class SignupTree extends JFrame implements ActionListener{
         submit.setFont(new Font("Times New Roman", Font.BOLD, 14));
         submit.setBackground(Color.BLACK);
         submit.setForeground(Color.WHITE);
-        submit.setBounds(250,720,100,30);
+        submit.setBounds(480,600,100,30);
         add(submit);
         submit.addActionListener(this);
         
@@ -92,7 +92,7 @@ public class SignupTree extends JFrame implements ActionListener{
         cancel.setFont(new Font("Times New Roman", Font.BOLD, 14));
         cancel.setBackground(Color.BLACK);
         cancel.setForeground(Color.WHITE);
-        cancel.setBounds(420,720,100,30);
+        cancel.setBounds(620,600,100,30);
         add(cancel);
         cancel.addActionListener(this);
        
@@ -204,13 +204,13 @@ public class SignupTree extends JFrame implements ActionListener{
             facility = facility + " ATM Card";
         }
         if(service2.isSelected()){ 
-            facility = facility + " Internet Banking";
+            facility = facility + " Online Banking";
         }
         if(service3.isSelected()){ 
             facility = facility + " Mobile Banking";
         }
         if(service4.isSelected()){ 
-            facility = facility + " EMAIL Alerts";
+            facility = facility + " email Alerts";
         }
         if(service5.isSelected()){ 
             facility = facility + " Cheque Book";
@@ -232,12 +232,14 @@ public class SignupTree extends JFrame implements ActionListener{
                     c3.s.executeUpdate(qs2);
                     JOptionPane.showMessageDialog(null, "Card Number: " + cardno + "\n Pin:"+ pin);
                     
-                    //new Deposit(pin).setVisible(true);
                     setVisible(false);
+                    new Deposit(pin).setVisible(false);
+                    
                 }
             
             }else if(ae.getSource()==cancel){
-                System.exit(0);
+                setVisible(false);
+                new Login().setVisible(true);
             }
             
         }catch(Exception ex){
